@@ -7,7 +7,7 @@
       </div>
       <div class="form-group">
         <label>Image URL</label>
-        <%= f.text_field :image_url, class: 'form-control' %>
+        <%= f.file_field :photo %>
       </div>
       <%= f.submit "Post", class: 'btn btn-success btn-block btn-lg' %>
     <% end %>
@@ -21,9 +21,11 @@
 <div class='row'>
   <% @posts.each do |post| %>
     <div class="col-sm-6 col-md-4">
+    <%= post.photo.url %>
       <div class="thumbnail">
-        <img src='<%= post.image_url %>' />
+
         <div class="caption">
+          <%= image_tag post.photo.url %>
           <h5><%= post.title %></h5>
         </div>
       </div>
